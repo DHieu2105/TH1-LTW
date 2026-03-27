@@ -1,0 +1,9 @@
+﻿<li class="has-children">
+    <a href="#">Chất Liệu</a>
+    <ul class="dropdown arrow-top">
+        @foreach (var item in Model)
+        {
+            <li><a href="#">@item.ChatLieu</a></li>
+        }
+    </ul>
+</li>
