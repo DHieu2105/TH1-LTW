@@ -31,6 +31,15 @@ namespace TH1.Controllers
             return PartialView(ds);
         }
 
+        // Action mới để lấy sản phẩm theo chất liệu
+        public IActionResult GetProductByChatLieu(string maChatLieu)
+        {
+            var products = db.TDanhMucSps
+                .Where(x => x.MaChatLieu == maChatLieu)
+                .ToList();
+            
+            return PartialView("_ProductList", products);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

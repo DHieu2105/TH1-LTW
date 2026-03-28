@@ -57,6 +57,28 @@
 
     <script src="../LayoutHotel/js/main.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            // AJAX: Lọc sản phẩm theo chất liệu
+            $(document).on('click', '.filter-chattieu', function (e) {
+                e.preventDefault();
+                
+                var maChatLieu = $(this).data('id');
+                
+                $.ajax({
+                    type: 'GET',
+                    url: '/Home/GetProductByChatLieu',
+                    data: { maChatLieu: maChatLieu },
+                    success: function (data) {
+                        $('#productList').html(data);
+                    },
+                    error: function () {
+                        alert('Lỗi!');
+                    }
+                });
+            });
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
